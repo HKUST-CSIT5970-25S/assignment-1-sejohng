@@ -5,9 +5,9 @@
 
 ---
 
-### Name: 
-### Student Id: 
-### Email: 
+### Name: JIANG Shijun
+### Student Id: 21134775
+### Email: sjiangaz@connect.ust.hk
 
 ---
 
