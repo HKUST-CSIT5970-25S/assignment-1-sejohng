@@ -15,7 +15,19 @@
 
 1. (1 mark) Report the name of measurement tool used in your measurements (you are free to choose *any* open source measurement software as long as it can measure CPU and memory performance). Please describe your configuration of the measurement tool, and explain why you set such a value for each parameter. Explain what the values obtained from measurement results represent (e.g., the value of your measurement result can be the execution time for a scientific computing task, a score given by the measurement tools or something else).
 
-    > Your answer goes here.
+    > ## Name: Phoronix Test Suite (PTS)
+    > ## Reason Reason for choosing: It's a comprehensive and widely recognized open-source benchmark tool that provides accurate and detailed performance data for both CPU and memory. It is also flexible enough to support multiple types of tests and configurations, making it ideal for benchmarking EC2 instances.
+    > ## Configuration
+    > Test Selection: To test CPU performance, you can choose a test like pts/cpu. To test memory, you can choose a test like pts/memory or a mixed load.
+    > Number of Iterations: Specify iterations in order to meet statistical significance, i.e. 3-5 iterations.
+    > Test Length: Depending on load, you can decide on each test duration. For CPU, 1-5 minutes can be suitable; you can select a duration as a function of the amount of memory (for instance, 2-10 minutes).
+    > Test Specifics: You can also specify whether you will be carrying out the tests at different CPU speeds or at a given load.
+    > ## Description of Measurement Findings
+    > CPU Performance: The output will likely be in values in terms of either execution time or throughput. For instance, pts/cpu will present scores in terms of CPU performance in activities like integer operation, floating-point operation, etc.
+    > Memory Performance: The memory benchmark will provide you with information on bandwidth, latency, and read/write operation throughput. The memory benchmark will inform you about how efficiently a load is handled by EC2 in terms of its memory.
+    > ## Example of results
+    > CPU: The result can be in seconds as a measure of CPU time spent in computing a computational operation.
+Memory: The outcome might be in terms of memory throughput in GB/s, which represents how much data is transferred from and to memory in a second.
 
 2. (1 mark) Run your measurement tool on general purpose `t2.micro`, `t2.medium`, and `c5d.large` Linux instances, respectively, and find the performance differences among these instances. Launch all the instances in the **US East (N. Virginia)** region. Does the performance of EC2 instances increase commensurate with the increase of the number of vCPUs and memory resource?
 
