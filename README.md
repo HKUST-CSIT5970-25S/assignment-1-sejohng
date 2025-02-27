@@ -40,13 +40,12 @@ Memory: The outcome might be in terms of memory throughput in GB/s, which repres
     | `c5d.large` |    7658 MIPS (Compression) ; 4864 MIPS (Decompression)             |      Average: 14109.94 MB/s          |
 
     > Region: US East (N. Virginia). Use `Ubuntu Server 22.04 LTS (HVM)` as AMI.
-    #### CPU Performance:
-    > The `t2.micro` has a relatively low CPU performance (3750 MIPS for compression and 3123 MIPS for decompression).  
-    > The `t2.medium` has a higher CPU performance (10087 MIPS for compression and 5883 MIPS for decompression), which is significantly greater than the t2.micro, despite only having a double increase in vCPUs.  
-    > The `c5d.large` has a moderate CPU performance increase (7658 MIPS for compression and 4864 MIPS for decompression), but with a larger increase in vCPUs (from 2 in t2.medium to 4 in c5d.large). Its CPU performance is lower than t2.medium, suggesting that while adding vCPUs increases performance, the specific type of instance (like t2 vs c5d) and underlying hardware architecture also play a significant role.
-    #### Memory Performance:
-    > Memory performance follows a similar pattern. The t2.micro has the lowest memory performance (10545.80 MB/s), while t2.medium has significantly higher memory throughput (19310.49 MB/s), almost double the performance of the t2.micro. The c5d.large provides lower memory performance (14109.94 MB/s) compared to the t2.medium, even though it has more vCPUs and more memory.
-
+  #### CPU Performance:
+  > The `t2.micro` supports a comparatively modest level of CPU performance (3750 MIPS in compression, 3123 MIPS in decompression).
+  > The `t2.medium` comes with a higher CPU performance (10087 MIPS compression, 5883 MIPS decompression), which is much more than that of `t2.micro` though with just a doubling in terms of vCPUs.
+  > The `c5d.large` enjoys a modest CPU increase (7658 MIPS compression, 4864 MIPS decompression), with a more dramatic increase in vCPUs (2 in `t2.medium` up to 4 in `c5d.large`). Its CPU is slower than `t2.medium`, which is why more vCPUs do enhance performance, but which kind of instance (like `t2` versus `c5d`) as well as underlying architecture also play a role.
+  #### Memory Performance:
+  > Memory also behaves in a similar manner. The lowest memory performance is that of the t2.micro (10545.80 MB/s), followed by much higher memory throughput (19310.49 MB/s), which is practically a doubling in terms of its counterpart, the t2.micro. The c5d.large also gives a lower memory performance (14109.94 MB/s), although it is more in terms of both its vCPUs as well as its memory.
 ## Question 2: Measure the EC2 Network performance
 
 1. (1 mark) The metrics of network performance include **TCP bandwidth** and **round-trip time (RTT)**. Within the same region, what network performance is experienced between instances of the same type and different types? In order to answer this question, you need to complete the following table.
