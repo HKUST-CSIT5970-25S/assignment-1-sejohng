@@ -35,9 +35,9 @@ Memory: The outcome might be in terms of memory throughput in GB/s, which repres
 
     | Size        | CPU performance | Memory performance |
     | ----------- | --------------- | ------------------ |
-    | `t2.micro` |  3750 MIPS (Compression) ; 3123 MIPS (Decompression)      |      Average : 10545.80 MB/s      |
-    | `t2.medium`  |  10087 MIPS (Compression) ; 5883 MIPS (Decompression)    |     Average : 19310.49 MB/s     |
-    | `c5d.large` |    7658 MIPS (Compression) ; 4864 MIPS (Decompression)    |     Average: 14109.94 MB/s      |
+    | `t2.micro`  |  3750 MIPS (Compression) ; 3123 MIPS (Decompression)  | Average : 10545.80 MB/s    |
+    | `t2.medium` |  10087 MIPS (Compression) ; 5883 MIPS (Decompression)  |  Average : 19310.49 MB/s   |
+    | `c5d.large` |  7658 MIPS (Compression) ; 4864 MIPS (Decompression)  |  Average: 14109.94 MB/s  |
 
     > Region: US East (N. Virginia). Use `Ubuntu Server 22.04 LTS (HVM)` as AMI.
   #### CPU Performance:
@@ -52,14 +52,17 @@ Memory: The outcome might be in terms of memory throughput in GB/s, which repres
 
     | Type                      | TCP b/w (Mbps) | RTT (ms) |
     | ------------------------- | -------------- | -------- |
-    | `t3.medium` - `t3.medium` |                |          |
-    | `m5.large` - `m5.large`   |                |          |
-    | `c5n.large` - `c5n.large` |                |          |
-    | `t3.medium` - `c5n.large` |  2550          |          |
-    | `m5.large` - `c5n.large`  |                |          |
-    | `m5.large` - `t3.medium`  |                |          |
+    | `t3.medium` - `t3.medium` |  3000          | rtt min/avg/max/mdev = 0.330/0.374/0.539/0.060 ms   |
+    | `m5.large` - `m5.large`   |  4790          | rtt min/avg/max/mdev = 0.187/0.200/0.221/0.010 ms   |
+    | `c5n.large` - `c5n.large` |  4780          | rtt min/avg/max/mdev = 0.189/0.197/0.218/0.007 ms   |
+    | `t3.medium` - `c5n.large` |  3600          | rtt min/avg/max/mdev = 0.783/0.815/0.887/0.031 ms   |
+    | `m5.large` - `c5n.large`  |  4720          | rtt min/avg/max/mdev = 0.206/0.218/0.255/0.013 ms   |
+    | `m5.large` - `t3.medium`  |  3740          | rtt min/avg/max/mdev = 0.841/1.016/2.273/0.419 ms   |
 
     > Region: US East (N. Virginia). Use `Ubuntu Server 22.04 LTS (HVM)` as AMI. Note: Use private IP address when using iPerf within the same region. You'll need iPerf for measuring TCP bandwidth and Ping for measuring Round-Trip time.
+
+    This is a comparison between TCP bandwidth and RTT between different EC2 instance types in a shared location. Generally, connections between similar-type instances will have smaller RTT as well as more bandwidth.  
+    In connections between a mix of different instance types, both TCP bandwidth as well as RTT will be more variable, with some having much higher RTT as well as smaller bandwidth. The implication is that network performance is not merely influenced by instance type, but also by which two instance types are communicating, with similar-type connections having overall better performance.
 
 2. (1 mark) What about the network performance for instances deployed in different regions? In order to answer this question, you need to complete the following table.
 
