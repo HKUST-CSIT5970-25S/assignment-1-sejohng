@@ -18,16 +18,14 @@
     > #### Name: Phoronix Test Suite (PTS)
     > #### Reason Reason for choosing: It's a comprehensive and widely recognized open-source benchmark tool that provides accurate and detailed performance data for both CPU and memory. It is also flexible enough to support multiple types of tests and configurations, making it ideal for benchmarking EC2 instances.
     > #### Configuration
-    > Test Selection: To test CPU performance, you can choose a test like `pts/cpu`. To test memory, you can choose a test like `pts/memory` or a mixed load.  
-    > Number of Iterations: Specify iterations in order to meet statistical significance, i.e. 3-5 iterations.  
-    > Test Length: Depending on load, you can decide on each test duration. For CPU, 1-5 minutes can be suitable; you can select a duration as a function of the amount of memory (for instance, 2-10 minutes).
-    > Test Specifics: You can also specify whether you will be carrying out the tests at different CPU speeds or at a given load.
+    > Test Selection: To test CPU performance, I choose a test like `$ sudo apt-get install php-zip` and `$ phoronix-test-suite run pts/compress-7zip`.
+    > To test memory, I choose a test like `$ phoronix-test-suite run pts/ramspee`.  
     > #### Description of Measurement Findings
-    > CPU Performance: The output will likely be in values in terms of either execution time or throughput. For instance, `pts/cpu` will present scores in terms of CPU performance in activities like integer operation, floating-point operation, etc.  
-    > Memory Performance: The memory benchmark will provide you with information on bandwidth, latency, and read/write operation throughput. The memory benchmark will inform you about how efficiently a load is handled by EC2 in terms of its memory.
+    > CPU Performance: The output will likely be in values in terms of either execution time or throughput. For instance, it will present scores in terms of CPU performance in activities like compression, floating-point operation, etc.  
+    > Memory Performance: The memory benchmark will provide me with information on read/write operation throughput. The memory benchmark will inform me about how efficiently a load is handled by EC2 in terms of its memory.
     > #### Example of results
     > CPU: The result can be in seconds as a measure of CPU time spent in computing a computational operation.  
-Memory: The outcome might be in terms of memory throughput in GB/s, which represents how much data is transferred from and to memory in a second.
+Memory: The outcome might be in terms of memory throughput in MB/s, which represents how much data is transferred from and to memory in a second.
 
 2. (1 mark) Run your measurement tool on general purpose `t2.micro`, `t2.medium`, and `c5d.large` Linux instances, respectively, and find the performance differences among these instances. Launch all the instances in the **US East (N. Virginia)** region. Does the performance of EC2 instances increase commensurate with the increase of the number of vCPUs and memory resource?
 
