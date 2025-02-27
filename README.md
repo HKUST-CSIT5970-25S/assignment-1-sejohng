@@ -35,9 +35,9 @@ Memory: The outcome might be in terms of memory throughput in GB/s, which repres
 
     | Size        | CPU performance | Memory performance |
     | ----------- | --------------- | ------------------ |
-    | `t2.micro` |  3750 MIPS (Compression) ; 3123 MIPS (Decompression)               |       Average : 10545.80 MB/s          |
-    | `t2.medium`  |  10087 MIPS (Compression) ; 5883 MIPS (Decompression)             |     Average : 19310.49 MB/s         |
-    | `c5d.large` |    7658 MIPS (Compression) ; 4864 MIPS (Decompression)             |      Average: 14109.94 MB/s          |
+    | `t2.micro` |  3750 MIPS (Compression) ; 3123 MIPS (Decompression)      |      Average : 10545.80 MB/s      |
+    | `t2.medium`  |  10087 MIPS (Compression) ; 5883 MIPS (Decompression)    |     Average : 19310.49 MB/s     |
+    | `c5d.large` |    7658 MIPS (Compression) ; 4864 MIPS (Decompression)    |     Average: 14109.94 MB/s      |
 
     > Region: US East (N. Virginia). Use `Ubuntu Server 22.04 LTS (HVM)` as AMI.
   #### CPU Performance:
@@ -55,7 +55,7 @@ Memory: The outcome might be in terms of memory throughput in GB/s, which repres
     | `t3.medium` - `t3.medium` |                |          |
     | `m5.large` - `m5.large`   |                |          |
     | `c5n.large` - `c5n.large` |                |          |
-    | `t3.medium` - `c5n.large` |  2550              |          |
+    | `t3.medium` - `c5n.large` |  2550          |          |
     | `m5.large` - `c5n.large`  |                |          |
     | `m5.large` - `t3.medium`  |                |          |
 
@@ -65,8 +65,8 @@ Memory: The outcome might be in terms of memory throughput in GB/s, which repres
 
     | Connection                | TCP b/w (Mbps) | RTT (ms) |
     | ------------------------- | -------------- | -------- |
-    | N. Virginia - Oregon      |                |          |
-    | N. Virginia - N. Virginia |                |          |
-    | Oregon - Oregon           |                |          |
+    | N. Virginia - Oregon      |      391       |  61.732  |
+    | N. Virginia - N. Virginia |     4790       |   0.194  |
+    | Oregon - Oregon           |     4790       |   0.160  |
  
     > Region: US East (N. Virginia), US West (Oregon). Use `Ubuntu Server 22.04 LTS (HVM)` as AMI. All instances are `c5.large`. Note: Use public IP address when using iPerf within the same region.
