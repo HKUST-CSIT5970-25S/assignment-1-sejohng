@@ -18,12 +18,12 @@
     > #### Name: Phoronix Test Suite (PTS)
     > #### Reason Reason for choosing: It's a comprehensive and widely recognized open-source benchmark tool that provides accurate and detailed performance data for both CPU and memory. It is also flexible enough to support multiple types of tests and configurations, making it ideal for benchmarking EC2 instances.
     > #### Configuration
-    > Test Selection: To test CPU performance, you can choose a test like pts/cpu. To test memory, you can choose a test like pts/memory or a mixed load.  
+    > Test Selection: To test CPU performance, you can choose a test like `pts/cpu`. To test memory, you can choose a test like `pts/memory` or a mixed load.  
     > Number of Iterations: Specify iterations in order to meet statistical significance, i.e. 3-5 iterations.  
     > Test Length: Depending on load, you can decide on each test duration. For CPU, 1-5 minutes can be suitable; you can select a duration as a function of the amount of memory (for instance, 2-10 minutes).
     > Test Specifics: You can also specify whether you will be carrying out the tests at different CPU speeds or at a given load.
     > #### Description of Measurement Findings
-    > CPU Performance: The output will likely be in values in terms of either execution time or throughput. For instance, pts/cpu will present scores in terms of CPU performance in activities like integer operation, floating-point operation, etc.  
+    > CPU Performance: The output will likely be in values in terms of either execution time or throughput. For instance, `pts/cpu` will present scores in terms of CPU performance in activities like integer operation, floating-point operation, etc.  
     > Memory Performance: The memory benchmark will provide you with information on bandwidth, latency, and read/write operation throughput. The memory benchmark will inform you about how efficiently a load is handled by EC2 in terms of its memory.
     > #### Example of results
     > CPU: The result can be in seconds as a measure of CPU time spent in computing a computational operation.  
@@ -35,11 +35,17 @@ Memory: The outcome might be in terms of memory throughput in GB/s, which repres
 
     | Size        | CPU performance | Memory performance |
     | ----------- | --------------- | ------------------ |
-    | `t2.micro` |                 |                    |
-    | `t2.medium`  |                 |                    |
-    | `c5d.large` |                 |                    |
+    | `t2.micro` |  3750 MIPS (Compression) ; 3123 MIPS (Decompression)               |       Average : 10545.80 MB/s          |
+    | `t2.medium`  |  10087 MIPS (Compression) ; 5883 MIPS (Decompression)             |     Average : 19310.49 MB/s         |
+    | `c5d.large` |    7658 MIPS (Compression) ; 4864 MIPS (Decompression)             |      Average: 14109.94 MB/s          |
 
     > Region: US East (N. Virginia). Use `Ubuntu Server 22.04 LTS (HVM)` as AMI.
+    #### CPU Performance:
+    > The `t2.micro` has a relatively low CPU performance (3750 MIPS for compression and 3123 MIPS for decompression).  
+    > The `t2.medium` has a higher CPU performance (10087 MIPS for compression and 5883 MIPS for decompression), which is significantly greater than the t2.micro, despite only having a double increase in vCPUs.  
+    > The `c5d.large` has a moderate CPU performance increase (7658 MIPS for compression and 4864 MIPS for decompression), but with a larger increase in vCPUs (from 2 in t2.medium to 4 in c5d.large). Its CPU performance is lower than t2.medium, suggesting that while adding vCPUs increases performance, the specific type of instance (like t2 vs c5d) and underlying hardware architecture also play a significant role.
+    #### Memory Performance:
+    > Memory performance follows a similar pattern. The t2.micro has the lowest memory performance (10545.80 MB/s), while t2.medium has significantly higher memory throughput (19310.49 MB/s), almost double the performance of the t2.micro. The c5d.large provides lower memory performance (14109.94 MB/s) compared to the t2.medium, even though it has more vCPUs and more memory.
 
 ## Question 2: Measure the EC2 Network performance
 
@@ -50,7 +56,7 @@ Memory: The outcome might be in terms of memory throughput in GB/s, which repres
     | `t3.medium` - `t3.medium` |                |          |
     | `m5.large` - `m5.large`   |                |          |
     | `c5n.large` - `c5n.large` |                |          |
-    | `t3.medium` - `c5n.large` |                |          |
+    | `t3.medium` - `c5n.large` |  2550              |          |
     | `m5.large` - `c5n.large`  |                |          |
     | `m5.large` - `t3.medium`  |                |          |
 
